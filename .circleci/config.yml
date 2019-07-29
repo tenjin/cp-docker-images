@@ -75,7 +75,7 @@ jobs:
   zookeeper-deploy-staging:
     executor: cibi
     environment:
-      NAME: kafka
+      NAME: zookeeper
       DOCKERFILE: ./Dockerfile
       ENVIRONMENT: staging
       REGISTRY_URL: 089955869835.dkr.ecr.us-east-1.amazonaws.com/tenjin
@@ -95,7 +95,7 @@ jobs:
   zookeeper-deploy-production:
     executor: cibi
     environment:
-      NAME: kafka
+      NAME: zookeeper
       DOCKERFILE: ./Dockerfile
       ENVIRONMENT: production
       REGISTRY_URL: 038620613384.dkr.ecr.us-east-1.amazonaws.com/tenjin
