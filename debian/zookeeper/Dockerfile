@@ -38,8 +38,6 @@ RUN echo "===> installing ${COMPONENT}..." \
     && chmod -R ag+w /etc/kafka /var/lib/${COMPONENT}/data /var/lib/${COMPONENT}/log /etc/${COMPONENT}/secrets \
     && chown -R root:root /var/log/kafka /var/log/confluent /var/lib/kafka /var/lib/zookeeper
 
-VOLUME ["/var/lib/${COMPONENT}/data", "/var/lib/${COMPONENT}/log", "/etc/${COMPONENT}/secrets"]
-
 COPY include/etc/confluent/docker /etc/confluent/docker
 
 CMD ["/etc/confluent/docker/run"]
