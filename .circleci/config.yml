@@ -36,7 +36,7 @@ jobs:
     executor: cibi
     environment:
       NAME: kafka
-      DOCKERFILE: ./debian/kafka/Dockerfile
+      DOCKERFILE: ./Dockerfile
       ENVIRONMENT: staging
       REGISTRY_URL: 089955869835.dkr.ecr.us-east-1.amazonaws.com/tenjin
       CI_ROLE_ARN: arn:aws:iam::089955869835:role/k8s-continuous-integration
@@ -47,6 +47,7 @@ jobs:
     - run:
         name: Push to Container Registry
         command: |
+          cd ./debian/kafka
           /script/credentials
           /script/login
           /script/docker
@@ -55,7 +56,7 @@ jobs:
     executor: cibi
     environment:
       NAME: kafka
-      DOCKERFILE: ./debian/kafka/Dockerfile
+      DOCKERFILE: ./Dockerfile
       ENVIRONMENT: production
       REGISTRY_URL: 038620613384.dkr.ecr.us-east-1.amazonaws.com/tenjin
       CI_ROLE_ARN: arn:aws:iam::038620613384:role/k8s-continuous-integration
@@ -66,6 +67,7 @@ jobs:
     - run:
         name: Push to Container Registry
         command: |
+          cd ./debian/kafka
           /script/credentials
           /script/login
           /script/docker
@@ -74,7 +76,7 @@ jobs:
     executor: cibi
     environment:
       NAME: kafka
-      DOCKERFILE: ./debian/kafka/Dockerfile
+      DOCKERFILE: ./Dockerfile
       ENVIRONMENT: staging
       REGISTRY_URL: 089955869835.dkr.ecr.us-east-1.amazonaws.com/tenjin
       CI_ROLE_ARN: arn:aws:iam::089955869835:role/k8s-continuous-integration
@@ -85,6 +87,7 @@ jobs:
     - run:
         name: Push to Container Registry
         command: |
+          cd ./debian/zookeeper
           /script/credentials
           /script/login
           /script/docker
@@ -93,7 +96,7 @@ jobs:
     executor: cibi
     environment:
       NAME: kafka
-      DOCKERFILE: ./debian/kafka/Dockerfile
+      DOCKERFILE: ./Dockerfile
       ENVIRONMENT: production
       REGISTRY_URL: 038620613384.dkr.ecr.us-east-1.amazonaws.com/tenjin
       CI_ROLE_ARN: arn:aws:iam::038620613384:role/k8s-continuous-integration
@@ -104,6 +107,7 @@ jobs:
     - run:
         name: Push to Container Registry
         command: |
+          cd ./debian/zookeeper
           /script/credentials
           /script/login
           /script/docker
